@@ -1,0 +1,42 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+$base-color : rgb(87, 28, 28);
+$secondary : rgb(255, 255, 255);
+body{
+    font: 100% $font-stack;
+    background-color: $secondary;
+    color: $primary-color;
+}
+%center-element{
+ margin: auto;
+ width: 50%;
+}
+@mixin switchColors($background,$text) {
+    background-color: $background;
+    color: $text;
+}
+.main{
+    @extend %center-element;
+    height: 80vh;
+    border: 20px;
+    
+    @include switchColors($base-color,$secondary );
+}
+.login-register-nav{
+    @extend %center-element;
+    display: flex;
+    button{
+        width: 100%;
+    }
+}
+
+.secondary-button{
+    @include switchColors($secondary,$base-color );
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+.secondary-button:hover{
+    @include switchColors($base-color,$secondary);
+}
+
