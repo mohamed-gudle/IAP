@@ -1,0 +1,63 @@
+body {
+  font: 100% Helvetica, sans-serif;
+  background-color: white;
+  color: #333; }
+
+.main {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px; }
+
+.main {
+  border-radius: 20px;
+  height: 500px;
+  width: 400px;
+  background-color: #333;
+  color: white; }
+
+.login-register-nav {
+  display: flex; }
+  .login-register-nav button {
+    width: 100%; }
+
+.secondary-button {
+  background-color: white;
+  color: #571c1c;
+  margin: 0px;
+  padding: 0px;
+  border: 0px; }
+
+.secondary-button:hover {
+  background-color: #571c1c;
+  color: white; }
+
+label {
+  font-size: 12.5px;
+  color: #000;
+  opacity: .8;
+  font-weight: 400; }
+
+form {
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 20px;
+  width: 300px; }
+  form h4 {
+    margin-bottom: 20px;
+    color: rgba(0, 0, 0, 0.5); }
+    form h4 span {
+      color: black;
+      font-weight: 700; }
+  form p {
+    line-height: 155%;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #000;
+    opacity: .65;
+    font-weight: 400;
+    max-width: 200px;
+    margin-bottom: 40px; }
