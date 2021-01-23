@@ -1,7 +1,7 @@
 import './css/style.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MainSection from './MainSection';
+import MainSection from './views/MainSection';
 
 
 
