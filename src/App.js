@@ -1,13 +1,12 @@
 import './css/style.css';
 import React from 'react';
-import ReactDOM from 'react-dom';
-import MainSection from './views/MainSection';
+import Main from './views/Main';
 
 
 
 function App() {
   return (
-    <MainSection/>
+    <Main />
   );
 }
 
