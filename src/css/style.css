@@ -41,6 +41,8 @@ button {
   cursor: pointer;
 }
 
+
+
 .main{
   width: 450px;
   margin: 0 auto;
@@ -89,6 +91,10 @@ button {
   border-bottom: 1px solid black;
   
 }
+.field-input:focus,
+.field-textarea:focus{
+  border-bottom: 1px solid rgb(55, 142, 255);
+}
 .field-input {
   height: 32px;
 }
@@ -108,6 +114,12 @@ button {
 .secondary-button span {
   font-weight: bold;
   color: #3b67ba;
+}
+.alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
 }
 
 
