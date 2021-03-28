@@ -1,0 +1,45 @@
+.centred-form {
+    width: 250px;
+    margin: 0 auto;
+  }
+  
+  .field {
+    position: relative;
+    min-height: 62px;
+    padding: 16px 0 8px;
+  }
+  .field-label {
+   
+    display: block;
+    color: rgb(0, 0, 0);
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: 400;
+    
+  }
+  .field-input,
+  .field-textarea {
+    
+    width: 100%;
+    padding: 8px 0;
+    line-height: 16px;
+    font-size: 16px;
+   border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+    
+  }
+  .field-input:focus,
+  .field-textarea:focus{
+    border-bottom: 1px solid rgb(55, 142, 255);
+  }
+  .field-input {
+    height: 32px;
+  }
+  .alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+  }
