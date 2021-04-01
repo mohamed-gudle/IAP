@@ -6,6 +6,8 @@ include 'account.php';
      protected $username;
     protected $password;
     protected $fullName;
+    protected $cityOfResidence;
+    protected $profilePhoto;
     //class constructor       
     function __construct($user)
     {
@@ -20,27 +22,45 @@ include 'account.php';
     public function setPassword($pass){
         $this->password=$pass;
     }
+    public function setProfilePhoto($photo){
+        $this->profilePhoto=$photo;
+    }
+    public function setCityOfResidence($cityOfResidence)
+    {
+        $this->cityOfResidence = $cityOfResidence;
+    }
+    
     //full name getter    
     public function getFullName()
     {
         return $this->fullName;
     }
+    public function getCityOfResidence()
+    {
+        return $this->cityOfResidence;
+    }
     /**        * Create a new user        * @param Object PDO Database connection handle        * @return String success or failure message        */      
       public function register($pdo)
     {
+       
         $passwordHash = password_hash($this->password, PASSWORD_DEFAULT);
         try {
-            $stmt = $pdo->prepare('INSERT INTO user (full_name,Username,password) VALUES(?,?,?)');
-            $stmt->execute([$this->getFullName(), $this->username, $passwordHash]);
-            return "Registration was successiful";
+            $stmt = $pdo->prepare('INSERT INTO user (full_name,Username,password,city_of_residence,profile_photo) VALUES(?,?,?,?,?)');
+            $stmt->execute([$this->getFullName(), $this->username, $passwordHash,$this->cityOfResidence,$this->profilePhoto]);
+            $user=array('registered'=>true);
+            $json_object=json_encode($user);
+            return $json_object;
         } catch (PDOException $e) {
-            return $e->getMessage();
+            $user=array('registered'=>false,'errorMessage'=>$e->getMessage());
+            $json_object=json_encode($user);
+            return $json_object;
         }
     }
     /**        * Check if a user entered a correct username and password        * @param Object PDO Database connection handle        * @return String success or failure message        */     
        public function login($pdo)
     {
         try {
+
             $stmt = $pdo->prepare("SELECT * FROM user WHERE username=?");
             $stmt->execute([$this->username]);
             $row = $stmt->fetch();
@@ -49,12 +69,14 @@ include 'account.php';
             }
             if (password_verify($this->password, $row['password'])) {
                 $_SESSION['username']=$row['username'];
-                $user=array('username'=>$row['username'],'fullName'=>$row['full_name'],'verified'=>true);
+                $user=array('username'=>$row['username'],'fullName'=>$row['full_name'],'verified'=>true,'profilePhoto'=>$row['profile_photo']);
                 $json_object=json_encode($user);
                 return $json_object;
             }
             else{
-            return "wrong password";
+            $user=array('verified'=>false,'errorMessage'=>"wrong password");
+            $json_object=json_encode($user);
+            return $json_object;
             }
         } catch (PDOException $e) {
             return $e->getMessage();
