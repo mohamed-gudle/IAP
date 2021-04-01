@@ -31,13 +31,13 @@ export default class LoginForm extends React.Component {
                 }
                 else {
                     _this.setState({
-                        errorMessage: this.responseText,
+                        errorMessage: user.errorMessage,
                         displayError: { display: 'block' }
                     })
                 }
             }
         };
-        xhttp.open("POST", "http://localhost/decode/index.php", true);
+        xhttp.open("POST", "http://localhost/serverLogic/index.php", true);
 
 
         console.log(formData);
