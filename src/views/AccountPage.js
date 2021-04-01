@@ -1,6 +1,5 @@
 import React from "react"
 import "../css/profile.css";
-import ChangePasswordForm from "./ChangePasswordForm";
 export default class AccountPage extends React.Component {
   constructor(props) {
     super(props);
